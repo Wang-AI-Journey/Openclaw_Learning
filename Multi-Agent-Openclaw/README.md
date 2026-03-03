@@ -103,7 +103,3 @@ sessionKey 格式：agent:<agentId>:feishu:group:<群聊ID>
 
 需要在 `openclaw.json` 中配置 `tools.sessions.visibility: "all"` 才能生效。
 
-## 参考文章
-
-- [OpenClaw安装教程（Windows + WSL）](https://cloud.tencent.com/developer/article/2626160)
-- [OpenClaw + 飞书多Agent实现教程 | 3个AI学生到岗，我终于体验了当导师的感觉](#)（公众号文章）
