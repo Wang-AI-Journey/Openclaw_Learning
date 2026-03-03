@@ -1,0 +1,334 @@
+{
+  "meta": {
+    "lastTouchedVersion": "2026.2.17",
+    "lastTouchedAt": "2026-02-25T06:39:36.156Z"
+  },
+  "wizard": {
+    "lastRunAt": "2026-02-25T06:39:36.138Z",
+    "lastRunVersion": "2026.2.17",
+    "lastRunCommand": "configure",
+    "lastRunMode": "local"
+  },
+  "auth": {
+    "profiles": {}
+  },
+  "models": {
+    "mode": "merge",
+    "providers": {
+      "bailian": {
+        "baseUrl": "https://coding.dashscope.aliyuncs.com/v1",
+        "apiKey": "sk-xxx",
+        "api": "openai-completions",
+        "models": [
+          {
+            "id": "qwen3.5-plus",
+            "name": "qwen3.5-plus",
+            "reasoning": false,
+            "input": [
+              "text",
+              "image"
+            ],
+            "cost": {
+              "input": 0,
+              "output": 0,
+              "cacheRead": 0,
+              "cacheWrite": 0
+            },
+            "contextWindow": 1000000,
+            "maxTokens": 65536
+          },
+          {
+            "id": "qwen3-max-2026-01-23",
+            "name": "qwen3-max-2026-01-23",
+            "reasoning": false,
+            "input": [
+              "text"
+            ],
+            "cost": {
+              "input": 0,
+              "output": 0,
+              "cacheRead": 0,
+              "cacheWrite": 0
+            },
+            "contextWindow": 262144,
+            "maxTokens": 65536
+          },
+          {
+            "id": "qwen3-coder-next",
+            "name": "qwen3-coder-next",
+            "reasoning": false,
+            "input": [
+              "text"
+            ],
+            "cost": {
+              "input": 0,
+              "output": 0,
+              "cacheRead": 0,
+              "cacheWrite": 0
+            },
+            "contextWindow": 262144,
+            "maxTokens": 65536
+          },
+          {
+            "id": "qwen3-coder-plus",
+            "name": "qwen3-coder-plus",
+            "reasoning": false,
+            "input": [
+              "text"
+            ],
+            "cost": {
+              "input": 0,
+              "output": 0,
+              "cacheRead": 0,
+              "cacheWrite": 0
+            },
+            "contextWindow": 1000000,
+            "maxTokens": 65536
+          },
+          {
+            "id": "MiniMax-M2.5",
+            "name": "MiniMax-M2.5",
+            "reasoning": false,
+            "input": [
+              "text"
+            ],
+            "cost": {
+              "input": 0,
+              "output": 0,
+              "cacheRead": 0,
+              "cacheWrite": 0
+            },
+            "contextWindow": 204800,
+            "maxTokens": 131072
+          },
+          {
+            "id": "glm-5",
+            "name": "glm-5",
+            "reasoning": false,
+            "input": [
+              "text"
+            ],
+            "cost": {
+              "input": 0,
+              "output": 0,
+              "cacheRead": 0,
+              "cacheWrite": 0
+            },
+            "contextWindow": 202752,
+            "maxTokens": 16384
+          },
+          {
+            "id": "glm-4.7",
+            "name": "glm-4.7",
+            "reasoning": false,
+            "input": [
+              "text"
+            ],
+            "cost": {
+              "input": 0,
+              "output": 0,
+              "cacheRead": 0,
+              "cacheWrite": 0
+            },
+            "contextWindow": 202752,
+            "maxTokens": 16384
+          },
+          {
+            "id": "kimi-k2.5",
+            "name": "kimi-k2.5",
+            "reasoning": false,
+            "input": [
+              "text",
+              "image"
+            ],
+            "cost": {
+              "input": 0,
+              "output": 0,
+              "cacheRead": 0,
+              "cacheWrite": 0
+            },
+            "contextWindow": 262144,
+            "maxTokens": 32768
+          }
+        ]
+      }
+    }
+  },
+  "agents": {
+    "defaults": {
+      "model": {
+        "primary": "bailian/qwen3.5-plus"
+      },
+      "models": {
+        "bailian/qwen3.5-plus": {},
+        "bailian/qwen3-max-2026-01-23": {},
+        "bailian/qwen3-coder-next": {},
+        "bailian/qwen3-coder-plus": {},
+        "bailian/MiniMax-M2.5": {},
+        "bailian/glm-5": {},
+        "bailian/glm-4.7": {},
+        "bailian/kimi-k2.5": {}
+      },
+      "compaction": {
+        "mode": "safeguard"
+      },
+      "maxConcurrent": 4,
+      "subagents": {
+        "maxConcurrent": 8
+      }
+    },
+    "list": [
+      {
+        "id": "chao",
+        "name": "王振潮",
+        "workspace": "/home/wang1/.openclaw/workspace-chao"
+      },
+      {
+        "id": "hang",
+        "name": "林晓杭",
+        "workspace": "/home/wang1/.openclaw/workspace-hang"
+      },
+      {
+        "id": "yun",
+        "name": "杨若云",
+        "workspace": "/home/wang1/.openclaw/workspace-yun"
+      }
+    ]
+  },
+  "bindings": [
+    {
+      "agentId": "chao",
+      "match": {
+        "channel": "feishu",
+        "accountId": "chao"
+      }
+    },
+    {
+      "agentId": "hang",
+      "match": {
+        "channel": "feishu",
+        "accountId": "hang"
+      }
+    },
+    {
+      "agentId": "yun",
+      "match": {
+        "channel": "feishu",
+        "accountId": "yun"
+      }
+    }
+  ],
+  "tools": {
+    "agentToAgent": {
+      "enabled": true,
+      "allow": [
+        "chao",
+        "hang",
+        "yun"
+      ]
+    },
+    "sessions": {
+      "visibility": "all"
+    }
+  },
+  "messages": {
+    "ackReactionScope": "group-mentions"
+  },
+  "commands": {
+    "native": "auto",
+    "nativeSkills": "auto"
+  },
+  "hooks": {
+    "internal": {
+      "enabled": true,
+      "entries": {
+        "boot-md": {
+          "enabled": true
+        },
+        "bootstrap-extra-files": {
+          "enabled": true
+        },
+        "command-logger": {
+          "enabled": true
+        },
+        "session-memory": {
+          "enabled": true
+        }
+      }
+    }
+  },
+  "channels": {
+    "feishu": {
+      "enabled": true,
+      "domain": "feishu",
+      "groupPolicy": "open",
+      "dmPolicy": "open",
+      "allowFrom": [
+        "*"
+      ],
+      "accounts": {
+        "chao": {
+          "appId": "cli_xxx",
+          "appSecret": "xxx"
+        },
+        "hang": {
+          "appId": "cli_xxx",
+          "appSecret": "xxx"
+        },
+        "yun": {
+          "appId": "cli_xxx",
+          "appSecret": "xxx"
+        }
+      }
+    }
+  },
+  "gateway": {
+    "port": 18789,
+    "mode": "local",
+    "bind": "loopback",
+    "auth": {
+      "mode": "token",
+      "token": "xxx"
+    },
+    "tailscale": {
+      "mode": "off",
+      "resetOnExit": false
+    },
+    "nodes": {
+      "denyCommands": [
+        "camera.snap",
+        "camera.clip",
+        "screen.record",
+        "calendar.add",
+        "contacts.add",
+        "reminders.add"
+      ]
+    }
+  },
+  "plugins": {
+    "load": {
+      "paths": [
+        "/home/wang1"
+      ]
+    },
+    "entries": {
+      "feishu": {
+        "enabled": true
+      }
+    },
+    "installs": {
+      "feishu": {
+        "source": "npm",
+        "spec": "@m1heng-clawd/feishu",
+        "installPath": "/home/wang1/.openclaw/extensions/feishu",
+        "version": "0.1.11",
+        "installedAt": "2026-02-25T03:34:52.091Z"
+      }
+    }
+  },
+  "session": {
+    "agentToAgent": {
+      "maxPingPongTurns": 1
+    }
+  }
+}
