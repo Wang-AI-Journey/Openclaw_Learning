@@ -378,7 +378,7 @@ async function _fireSyntheticMentions(dc, replyText, chatHistories, historyLimit
     if (!dc.isGroup) return;
 
     // 1. 配置最大轮次，默认为 10
-    const maxTurns = 5;
+    const maxTurns = 10;
 
     // 采用工业级的低碰撞概率分隔符
     const TURN_DELIMITER = '__OC_SYNTH_TURN__';
