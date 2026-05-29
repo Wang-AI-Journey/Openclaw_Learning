@@ -1,0 +1,23 @@
+# Windows Docker Desktop 专用
+# 注意：network_mode: host 在 Windows Docker Desktop 上不可用，使用默认 bridge 网络
+services:
+  gateway:
+    image: nousresearch/hermes-agent:main
+    container_name: hermes
+    restart: unless-stopped
+    volumes:
+      - .:/opt/data
+      - ./VERSION:/opt/hermes/VERSION
+    environment:
+      - HERMES_UID=10000
+      - HERMES_GID=10000
+    # 启动前：修复权限 → 安装 lark-oapi（基础镜像不含） → 启动 gateway
+    command: ["bash", "-c", "
+      chmod 644 /opt/data/auth.json 2>/dev/null;
+      chmod 644 /opt/data/config.yaml 2>/dev/null;
+      chmod 644 /opt/data/.env 2>/dev/null;
+      chmod -R 777 /opt/data/weixin/ 2>/dev/null;
+      chmod -R 777 /opt/data/pairing/ 2>/dev/null;
+      uv pip install lark-oapi==1.5.3 --quiet 2>/dev/null;
+      exec hermes gateway run
+    "]
